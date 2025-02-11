@@ -57,7 +57,7 @@ export async function getPostById(id: string): Promise<BlogPost | undefined> {
       excerpt: data.excerpt,
       content: contentHtml,
     };
-  } catch (error) {
+  } catch (_) {
     return undefined;
   }
 } 

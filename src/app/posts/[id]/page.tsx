@@ -2,7 +2,12 @@ import { getPostById } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default async function PostPage({ params }: PageProps) {
   const post = await getPostById(params.id);
 
   if (!post) {
